@@ -22,8 +22,8 @@ public class GugulSteps {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        //options.addArguments("--headless"); // Ejecutar en modo sin cabeza
-        options.addArguments("--remote-allow-origins=*");  // Agregar esta línea
+        options.addArguments("--headless");
+        options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
         gugul = new Gugul(driver);
