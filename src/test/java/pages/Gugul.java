@@ -1,18 +1,22 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
+
 public class Gugul extends BasePage {
 
-    public Gugul() {
+    public Gugul(WebDriver driver) {
         super(driver);
     }
-    public void navigateToGoogle(){
+
+    public void navigateToGoogle() {
         navigateTo("https://www.google.com");
     }
-    public void searchSomething(){
+
+    public void searchSomething() {
         write("#APjFqb", "clima guadalajara");
     }
-    public void clickSearch(){
+
+    public void clickSearch() {
         clickElement("div[class='FPdoLc lJ9FBc'] input[name='btnK']");
     }
-    
 }

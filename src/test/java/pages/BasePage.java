@@ -1,32 +1,22 @@
 package pages;
 
 import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-
 public class BasePage {
-    protected static WebDriver driver;
-
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
- 
-    static {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
+    protected WebDriver driver;
+    WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
-        BasePage.driver = driver;
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
- 
-    public static void navigateTo(String url) {
+
+    public void navigateTo(String url) {
         driver.get(url);
         driver.manage().window().maximize();
     }
@@ -44,7 +34,7 @@ public class BasePage {
         find(locator).sendKeys(keysToSend);
     }
 
-    public static void closeBrowser() {
+    public void closeBrowser() {
         if (driver != null) {
             driver.quit();
         }
