@@ -7,6 +7,8 @@ import io.cucumber.java.en.When;
 import pages.Gugul;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GugulSteps {
@@ -16,7 +18,14 @@ public class GugulSteps {
     @Before
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless"); // Ejecutar en modo sin cabeza
+        options.addArguments("--remote-allow-origins=*");  // Agregar esta línea
+
+        driver = new ChromeDriver(options);
         gugul = new Gugul(driver);
     }
 
