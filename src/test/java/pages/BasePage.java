@@ -1,14 +1,7 @@
 package pages;
 
 import java.time.Duration;
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.io.IOException;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,16 +32,6 @@ public class BasePage {
     public void write(String locator, String keysToSend){
         find(locator).clear();
         find(locator).sendKeys(keysToSend);
-    }
-
-    public void takeScreenshot(String fileName) {
-        TakesScreenshot screenshotTaker = (TakesScreenshot) driver;
-        File screenshot = screenshotTaker.getScreenshotAs(OutputType.FILE);
-        try {
-            Files.copy(screenshot.toPath(), Paths.get("target/screenshots/" + fileName + ".png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void closeBrowser() {

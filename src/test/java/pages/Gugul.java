@@ -10,16 +10,13 @@ public class Gugul extends BasePage {
 
     public void navigateToGoogle() {
         navigateTo("https://www.google.com");
-        takeScreenshot("navigateToGoogle");
     }
 
     public void searchSomething() {
         write("#APjFqb", "clima guadalajara");
-        takeScreenshot("searchSomething");
     }
 
     public void clickSearch() {
-        clickElement("div[class='FPdoLc lJ9FBc'] input[name='btnK']");
-        takeScreenshot("clickSearch");
+        clickElement("div[class='lJ9FBc'] input[name='btnK']");
     }
 }
